@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './pokebola.svg';
+import Search from './components/Search';
+import {SearchProvider} from './providers/Search';
+import SearchContexts from './contexts/Search';
+import {useContext} from 'react';
 
 function App() {
+
+  const search = useContext(SearchContexts)
+  
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
+        <SearchProvider>
+        
+        <Search/>
+        <h2>{search}</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        
+        </SearchProvider>
   );
 }
 
