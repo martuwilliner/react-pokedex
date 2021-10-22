@@ -1,5 +1,3 @@
-import {createContext} from 'react';
-
-const SearchContexts = createContext(null);
-
-export default SearchContexts;
+import { createContext } from "react";
+const SearchContext = createContext(null);
+export default SearchContext;

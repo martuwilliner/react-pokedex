@@ -1,24 +1,24 @@
-import logo from './pokebola.svg';
-import Search from './components/Search';
-import {SearchProvider} from './providers/Search';
-import SearchContexts from './contexts/Search';
-import {useContext} from 'react';
-
-function App() {
-
-  const search = useContext(SearchContexts)
+import "./styles/libs.css";
+import "./styles/main.css";
+import icon from "./assets/logo.svg"
+import { SearchProvider } from "./providers/Search";
+import { ResultProvider } from "./providers/Result";
+import { ListProvider } from "./providers/List";
+import SearchForm from "./components/Search";
+import Result from "./components/Result";
+import List from "./components/List";
+export default function App() {
   
-  
-
   return (
-        <SearchProvider>
-        
-        <Search/>
-        <h2>{search}</h2>
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        </SearchProvider>
+    <SearchProvider>
+      <ResultProvider>
+        <ListProvider>
+      <img src={icon} alt="pokeball icon" />
+        <SearchForm /> 
+        <Result />
+        <List/>
+        </ListProvider>
+      </ResultProvider>
+    </SearchProvider>
   );
 }
-
-export default App;
