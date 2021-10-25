@@ -4,7 +4,7 @@ export default function SearchForm() {
   const { setSearch } = useContext(SearchContext);
   const SearchInput = useRef(null);
   return (
-    <fieldset>
+    <fieldset id="field-search">
       <input
         type="text"
         ref={SearchInput}
@@ -14,7 +14,6 @@ export default function SearchForm() {
             : setSearch(null)
         }
       />
-      <i className="fa-solid fa-magnifying-glass"></i>
     </fieldset>
   );
 }

@@ -1,0 +1,33 @@
+header {
+    background: rgba(222, 220, 220, 1);
+    display: flex;
+    height: 15vh;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+  }
+  header #icon {
+    flex-grow: 0.1;
+  }
+  header #icon img {
+    max-width: 100%;
+  }
+  #field-search {
+    flex-grow: 1;
+    height: 3rem;
+    padding: 0 1rem;
+    display: flex;
+    border: none;
+    outline: none;
+  }
+  #field-search input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 3rem;
+  }
+  

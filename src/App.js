@@ -1,24 +1,27 @@
 import "./styles/libs.css";
 import "./styles/main.css";
+import { useContext } from "react"
 import icon from "./assets/logo.svg"
-import { SearchProvider } from "./providers/Search";
-import { ResultProvider } from "./providers/Result";
-import { ListProvider } from "./providers/List";
-import SearchForm from "./components/Search";
+
+import ActiveContext from "./contexts/Active";
+import ResultContext from "./contexts/Result";
+import Header from "./components/Header";
 import Result from "./components/Result";
 import List from "./components/List";
+import Active from"./components/Active";
 export default function App() {
   
+  const {result} = useContext(ResultContext);
+  const {active} = useContext(ActiveContext);
+
   return (
-    <SearchProvider>
-      <ResultProvider>
-        <ListProvider>
-      <img src={icon} alt="pokeball icon" />
-        <SearchForm /> 
-        <Result />
-        <List/>
-        </ListProvider>
-      </ResultProvider>
-    </SearchProvider>
+    <>
+        <Header />
+        <Result /> 
+        {result ==null ? <List/>:
+        null}
+        {active ? <Active/> : null}
+        
+    </>
   );
 }
