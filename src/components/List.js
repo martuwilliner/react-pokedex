@@ -5,14 +5,15 @@ import ActiveContext from "../contexts/Active";
 import ShowContext from "../contexts/Show";
 
 export default function List() {
-    useEffect(() => getList(), [] )
     
-    const { list,getList } = useContext(ListContext);
+    const { list,getList,next,prev,setUrl,url } = useContext(ListContext);
     
     const { changeActive } = useContext(ActiveContext);
-
+    
     const {setShow} = useContext(ShowContext);
-
+    
+    useEffect(() => getList(), [url] )
+    
     return(<section className="list">
         {list.map((el) =>
     <article  key={el.id} className="list-items" onClick={() => {changeActive(); setShow(el.id)}}>
@@ -21,7 +22,12 @@ export default function List() {
         <h2>{el.name}</h2>
         <h3>#{el.id}</h3>
     </article>
-    )}</section>);
-    /* return(<section><pre>{JSON.stringify(list)}</pre></section>); */
+    )}
+    <section className="list-btns">
+    {prev && <button className="list-btn list-btn-prev" onClick={() => setUrl(prev)}>Previous</button>}
+    {next && <button className="list-btn list-btn-next" onClick={() => setUrl(next)}>Next</button>}
+    </section>
+    
+    </section>);
 }
 
